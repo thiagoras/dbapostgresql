@@ -1,0 +1,19 @@
+COPY tabela_de_clientes (CPF, NOME, ENDERECO_1, ENDERECO_2, BAIRRO, CIDADE, ESTADO, CEP, DATA_DE_NASCIMENTO, IDADE, SEXO, LIMITE_DE_CREDITO, VOLUME_DE_COMPRA, PRIMEIRA_COMPRA)
+FROM '/home/thiago/postgres/frutally/tabela_de_clientes.csv'
+WITH (FORMAT csv, HEADER false, DELIMITER ';', QUOTE '"');
+
+COPY tabela_de_produtos (CODIGO_DO_PRODUTO, NOME_DO_PRODUTO, EMBALAGEM, TAMANHO, SABOR, PRECO_DE_LISTA)
+FROM '/home/thiago/postgres/frutally/tabela_de_produtos.csv'
+WITH (FORMAT csv, HEADER false, DELIMITER ';', QUOTE '"');
+
+COPY tabela_de_vendedores (MATRICULA, NOME, PERCENTUAL_COMISSAO, DATA_ADMISSAO, DE_FERIAS, BAIRRO)
+FROM '/home/thiago/postgres/frutally/tabela_de_vendedores.csv'
+WITH (FORMAT csv, HEADER false, DELIMITER ';', QUOTE '"');
+
+COPY notas_fiscais (CPF, MATRICULA, DATA_VENDA, NUMERO, IMPOSTO)
+FROM '/home/thiago/postgres/frutally/notas_fiscais.csv'
+WITH (FORMAT csv, HEADER false, DELIMITER ';', QUOTE '"');
+
+COPY itens_notas_fiscais (NUMERO, CODIGO_DO_PRODUTO, QUANTIDADE, PRECO)
+FROM '/home/thiago/postgres/frutally/itens_notas_fiscais.csv'
+WITH (FORMAT csv, HEADER false, DELIMITER ';', QUOTE '"');
